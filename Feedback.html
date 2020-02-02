@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function feedbackFormProcess() {
+            var feedbackFormObj = document.getElementById("feedbackForm");
+            if (feedbackFormValidate(feedbackFormObj)) {
+
+                alert("Thank you for your feedback");
+            }
+        }
+        function feedbackFormValidate(formObj) {
+            var firstname = formObj.fname.value;
+            var lastname = formObj.lname.value;
+            var email = formObj.email.value;
+            var subject = formObj.subject.value;
+            var isValid = false;
+            if (firstname.trim().length == 0) {
+                alert("Your firstname can not be empty!");
+            }
+            else if (lastname.trim().length == 0) {
+                alert("Your lastname can not be empty!");
+            }
+            else if (email.trim().length == 0) {
+                alert("Your email can not be empty!");
+                
+            }
+            else if (emailIsValid(email) == false) {
+                alert("Your email address is invalid!");
+            }
+            else if (subject.trim().length == 0) {
+                alert("Your subject can not be empty!");
+            }            
+            else {
+                isValid = true;
+            }
+            return isValid;
+        }
+        function emailIsValid(email) {
+            var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/;
+            return re.test(email);
+        }
+    </script>
+</head>
+
+<body class="bg">
+    <!-- Header -->
+    <table style="width: 1100px;">
+        <tr style="padding-bottom:0;"></tr>
+        <td><img src="https://pebblehost.com/src/img/logos/p.png" alt="Nature's Source Logo" width="248" height="240"
+                padding-right="60"></td>
+        <td>
+            <p style="border: 3px; text-size-adjust: 40px;font-size: 40px; font-family: Arial, Helvetica, sans-serif; font-style: italic;
+        text-shadow: blueviolet; text-align: center;padding-bottom: 0;">
+                Weclome to Pure Milk Tea</p>
+            <p style="text-align: center;">419 Enclave Circle<br>
+                Costa Mesa, CA 92626<br>
+                Tel: 213.321.3865<br>
+                Email: wshwjh@gmail.com
+        </td>
+        </p>
+        </td>
+        </tr>
+    </table>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="Feedback.html">Feedback</a>
+        <div class="dropdown">
+            <button class="dropbtn">About Us
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="Mission.html">Mission</a>
+                <a href="Vision.html">Vision</a>
+                <a href="History.html">History</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <h3 style="margin-left: 5%;">Contact Form</h3>
+
+    <div class="container">
+        <form id="feedbackForm" onsubmit="feedbackFormProcess()">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Your Email Address..">
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <hr class="striped-border" style="margin-bottom: 15px;">
+
+    <!-- footer -->
+    <footer style="text-align: center;color: gray;">&copy; Copyright 2020, PureMilkTea.com. All rights reserved.
+        <u>Terms of Use</u> |
+        Privacy Policy-REVISED<br>
+        1-213-PureMilkTea (1-213-321-3865) </footer>
+</body>
+</html>
